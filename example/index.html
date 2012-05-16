@@ -1,0 +1,79 @@
+<!doctype html>
+
+<html>
+    <head>
+        <title>jQuery TapClick</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+
+        <style>
+            html, body {
+                height: 150%;
+            }
+
+            .example .button {
+                display: inline-block;
+                padding: 6px 10px;
+                background: #eee;
+                text-decoration: none;
+                color: #000;
+                border-radius: 10px;
+                box-shadow: 0 1px 0 #aaa;
+            }
+
+                .example .button:hover {
+                    background: #ddd;
+                }
+
+                .example .button:active {
+                    background: #ccc;
+                    box-shadow: inset 0 1px 0 #888;
+                }
+        </style>
+
+        <script src="lib/modernizr-2.5.3.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>jQuery TapClick</h1>
+            <p>This plugin solves your slow taps.</p>
+        </header>
+
+
+        <section class="example">
+            <h2>Example</h2>
+
+            <p>
+                Change <a href="" class="color button">color</a>
+                or <a href="" class="size button">size</a>
+            </p>
+
+            <p class="result">See how responsive it is?</p>
+        </section>
+
+        <script src="lib/jquery-1.7.2.js"></script>
+        <script src="../src/jquery.tapclick.js"></script>
+
+        <script>
+        $(function() {
+            // Start tapClick if touch
+            Modernizr.touch && $.tapClick();
+
+            var changeColor = function(e) {
+                e.preventDefault();
+
+                var color = '#'+Math.floor(Math.random()*16777215).toString(16);
+                $('.example .result').css('background-color', color);
+            };
+
+            var changeSize = function(e) {
+                e.preventDefault();
+                var size = Math.random() * 10 + 10;
+                $('.example .result').css('font-size', size);
+            };
+
+            $('.example').on('click', '.color', changeColor);
+            $('.example').on('click', '.size', changeSize);
+        });
+        </script>
+    </body>
+</html>
