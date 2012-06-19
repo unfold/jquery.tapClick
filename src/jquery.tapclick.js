@@ -48,6 +48,8 @@
             };
 
             var end = function(e) {
+                console.log('touchend');
+
                 e.preventDefault();
 
                 var $this = $(this);
@@ -60,8 +62,9 @@
             };
 
             return function(e) {
-                var $this = $(this);
+                console.log('start');
 
+                var $this = $(this);
                 var touch = e.originalEvent.touches[0];
 
                 startX = touch.clientX;
@@ -73,6 +76,8 @@
                 $this.on('touchcancel', cancel);
             };
         })();
+
+        $(document).on('touchstart', start);
     };
 })(jQuery);
 

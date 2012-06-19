@@ -1,5 +1,7 @@
 #jquery.tapClick
 
+This plugin is deprecated. See [jquery.taplizer](https://github.com/unfold/jquery.taplizer "unfold/jquery.taplizer")
+
 This plugin should solve your unresponsive slow taps on touch devices. Made to intercept jquery click events. Supports normal events and delegates.
 
 ## Usage
